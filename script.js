@@ -10,7 +10,7 @@ async function getInfo(acc_num) {
     const parser = new DOMParser();
     const xmlDoc = parser.parseFromString(data, 'text/xml');
 
-    console.log(xmlDoc);
+    //console.log(xmlDoc);
 
     // Access XML data
     const entryNode = xmlDoc.querySelector('entry'); // Get the first 'entry' element
@@ -59,5 +59,9 @@ async function getInfo(acc_num) {
 
 
 searchBtn.addEventListener('click', () => {
-    getInfo(searchBox.value);
+    if (searchBox.value != ''){
+        getInfo(searchBox.value);
+    } else {
+        alert('Please enter a accession number.')
+    }
 })
